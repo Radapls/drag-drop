@@ -28,6 +28,7 @@ textarea {
   width: 100%;
   max-width: 30rem;
   border: 1px solid #ccc;
+  border-radius: .3rem;
 }
 
 input:focus,
@@ -43,6 +44,11 @@ button {
   cursor: pointer;
   color: white;
   padding: 0.75rem 1rem;
+  border-radius: .5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color;
+  transition-duration: 300ms;
 }
 
 button:focus {
@@ -58,9 +64,12 @@ button:active {
 .projects {
   margin: 1rem;
   border: 1px solid #ff0062;
+  border-radius: .5rem;
 }
 
 .projects header {
+  border-top-right-radius: .5rem;
+  border-top-left-radius: .5rem;
   background: #ff0062;
   height: 3.5rem;
   display: flex;
@@ -91,6 +100,7 @@ button:active {
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
   margin: 1rem;
+  border-radius: .5rem;
 }
 
 .projects li h2 {
@@ -121,7 +131,8 @@ button:active {
 
 #user-input {
   margin: 1rem;
-  padding: 1rem;
+  padding: 2rem;
   border: 1px solid #ff0062;
   background: #f7f7f7;
+  border-radius: .5rem;
 }
