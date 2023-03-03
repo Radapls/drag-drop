@@ -11,11 +11,32 @@
  * @date Friday, 15th November 2019
  */
 
+/** Project Type */
+
+enum ProjectStatus
+{
+    Active, Finished
+}
+
+class Project
+{
+    constructor(
+        public id: string,
+        public title: string,
+        public description: string,
+        public people: number,
+        public status: ProjectStatus)
+    { }
+}
+
 /** Project state management */
+
+type Listener = (items: Project[]) => void;
+
 class ProjectState
 {
-    private listeners: any[] = [];
-    private projects: any[] = [];
+    private listeners: Listener[] = [];
+    private projects: Project[] = [];
     private static instance: ProjectState;
 
     private constructor()
@@ -32,19 +53,19 @@ class ProjectState
         return this.instance;
     }
 
-    addListener(listenerFn: Function)
+    addListener(listenerFn: Listener)
     {
         this.listeners.push(listenerFn);
     }
 
-    addPRoject(title: string, description: string, numOfPeople: number)
+    addProject(title: string, description: string, numOfPeople: number)
     {
-        const newProject = {
-            id: Math.random().toString(),
+        const newProject = new Project(
+            Math.random().toString(),
             title,
             description,
-            numOfPeople
-        };
+            numOfPeople,
+            ProjectStatus.Active)
 
         this.projects.push(newProject);
         for (const listenerFn of this.listeners)
@@ -122,7 +143,7 @@ class ProjectList
     templateElement: HTMLTemplateElement;
     hostElement: HTMLDivElement;
     element: HTMLElement;
-    assignedProjects: any[];
+    assignedProjects: Project[];
 
     constructor(private type: 'active' | 'finished')
     {
@@ -134,7 +155,7 @@ class ProjectList
         this.element = importedContent.firstElementChild as HTMLElement;
         this.element.id = `${this.type}-projects`;
 
-        projectState.addListener((projects: any[]) =>
+        projectState.addListener((projects: Project[]) =>
         {
             this.assignedProjects = projects;
             this.renderProjects();
@@ -246,7 +267,7 @@ class ProjectInput
         if (Array.isArray(userInput))
         {
             const [ title, description, people ] = userInput;
-            projectState.addPRoject(title, description, people)
+            projectState.addProject(title, description, people)
             this.clearInputs();
         }
     }
