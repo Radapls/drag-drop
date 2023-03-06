@@ -206,7 +206,6 @@ var App;
             event.dataTransfer.effectAllowed = 'move';
         }
         dragEndHandler(_) {
-            console.log('dragEnd');
         }
         configure() {
             this.element.addEventListener('dragstart', this.dragStartHandler);

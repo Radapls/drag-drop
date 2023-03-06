@@ -12,6 +12,9 @@
  */
 
 /// <reference path="base-component.ts" />
+/// <reference path="../decorators/autobind.ts" />
+/// <reference path="../models/project.model.ts" />
+/// <reference path="../models/drag-drop.interface.ts" />
 
 
 namespace App
@@ -50,7 +53,6 @@ namespace App
 
         dragEndHandler(_: DragEvent): void
         {
-            console.log('dragEnd');
         }
 
         configure(): void
