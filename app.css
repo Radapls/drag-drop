@@ -102,6 +102,7 @@ button:active {
   margin: 1rem;
   border-radius: .5rem;
   background-color: white;
+  cursor: grab;
 }
 
 .projects li h2 {

@@ -11,7 +11,7 @@
  * @date Monday, 6th March 2023
  */
 /** Base Class */
-export abstract class Component<T extends HTMLElement, U extends HTMLElement>
+export default abstract class Component<T extends HTMLElement, U extends HTMLElement>
 {
     templateElement: HTMLTemplateElement;
     hostElement: T;
