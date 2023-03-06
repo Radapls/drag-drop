@@ -11,20 +11,17 @@
  * @date Monday, 6th March 2023
  */
 
-namespace App
+/** Auto-bind decorator */
+export function AutoBind(_: any, _2: string, descriptor: PropertyDescriptor)
 {
-    /** Auto-bind decorator */
-    export function AutoBind(_: any, _2: string, descriptor: PropertyDescriptor)
-    {
-        const originalMethod = descriptor.value;
-        const adjustedDescriptor: PropertyDescriptor = {
-            configurable: true,
-            get()
-            {
-                const boundFn = originalMethod.bind(this);
-                return boundFn;
-            }
-        };
-        return adjustedDescriptor;
-    }
+    const originalMethod = descriptor.value;
+    const adjustedDescriptor: PropertyDescriptor = {
+        configurable: true,
+        get()
+        {
+            const boundFn = originalMethod.bind(this);
+            return boundFn;
+        }
+    };
+    return adjustedDescriptor;
 }

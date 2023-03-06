@@ -11,49 +11,45 @@
  * @date Monday, 6th March 2023
  */
 
-namespace App
+/** Validation */
+export interface Validation
 {
+    value: string | number;
+    required?: boolean;
+    minLength?: number;
+    maxLength?: number;
+    min?: number;
+    max?: number;
+}
 
-    /** Validation */
-    export interface Validation
+export function validate(validInput: Validation)
+{
+    let isValid = true;
+
+    if (validInput.required)
     {
-        value: string | number;
-        required?: boolean;
-        minLength?: number;
-        maxLength?: number;
-        min?: number;
-        max?: number;
+        isValid = isValid && validInput.value.toString().trim().length !== 0;
     }
 
-    export function validate(validInput: Validation)
+    if (validInput.minLength != null && typeof validInput.value === 'string')
     {
-        let isValid = true;
-
-        if (validInput.required)
-        {
-            isValid = isValid && validInput.value.toString().trim().length !== 0;
-        }
-
-        if (validInput.minLength != null && typeof validInput.value === 'string')
-        {
-            isValid = isValid && validInput.value.length >= validInput.minLength;
-        }
-
-        if (validInput.maxLength != null && typeof validInput.value === 'string')
-        {
-            isValid = isValid && validInput.value.length <= validInput.maxLength;
-        }
-
-        if (validInput.min != null && typeof validInput.value === 'number')
-        {
-            isValid = isValid && validInput.value >= validInput.min
-        }
-
-        if (validInput.max != null && typeof validInput.value === 'number')
-        {
-            isValid = isValid && validInput.value <= validInput.max
-        }
-
-        return isValid;
+        isValid = isValid && validInput.value.length >= validInput.minLength;
     }
+
+    if (validInput.maxLength != null && typeof validInput.value === 'string')
+    {
+        isValid = isValid && validInput.value.length <= validInput.maxLength;
+    }
+
+    if (validInput.min != null && typeof validInput.value === 'number')
+    {
+        isValid = isValid && validInput.value >= validInput.min
+    }
+
+    if (validInput.max != null && typeof validInput.value === 'number')
+    {
+        isValid = isValid && validInput.value <= validInput.max
+    }
+
+    return isValid;
 }

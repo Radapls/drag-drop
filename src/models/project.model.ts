@@ -11,23 +11,20 @@
  * @date Monday, 6th March 2023
  */
 
-namespace App
+/** Project Type */
+
+export enum ProjectStatus
 {
-    /** Project Type */
+    Active, Finished
+}
 
-    export enum ProjectStatus
-    {
-        Active, Finished
-    }
-
-    export class Project
-    {
-        constructor(
-            public id: string,
-            public title: string,
-            public description: string,
-            public people: number,
-            public status: ProjectStatus)
-        { }
-    }
+export class Project
+{
+    constructor(
+        public id: string,
+        public title: string,
+        public description: string,
+        public people: number,
+        public status: ProjectStatus)
+    { }
 }
