@@ -3,17 +3,22 @@ const path = require('path');
 module.exports = {
     mode: 'development',
     entry: './src/app.ts',
-    devServer: {
-        static: [
-            {
-                directory: path.join(__dirname)
-            }
-        ]
+    performance: {
+        hints: false
     },
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist/'
+        publicPath: '/dist/',
+    },
+    devServer: {
+        static:
+        {
+            directory: path.join(__dirname, './')
+        },
+        compress: true,
+        port: 3000
+
     },
     devtool: 'inline-source-map',
     module: {
