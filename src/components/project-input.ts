@@ -11,10 +11,10 @@
  * @date Monday, 6th March 2023
  */
 
-import { AutoBind } from "../decorators/autobind.js";
-import { projectState } from "../state/project-state.js";
-import * as Validate from "../utils/validation.js";
-import Component from "./base-component.js";
+import { AutoBind } from "../decorators/autobind";
+import { projectState } from "../state/project-state";
+import * as Validate from "../utils/validation";
+import Component from "./base-component";
 
 export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement>
 {

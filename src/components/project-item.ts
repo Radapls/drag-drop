@@ -11,10 +11,10 @@
  * @date Monday, 6th March 2023
  */
 
-import { AutoBind } from "../decorators/autobind.js";
-import { Draggable } from "../models/drag-drop.interface.js";
-import { Project } from "../models/project.model.js";
-import Component from "./base-component.js";
+import { AutoBind } from "../decorators/autobind";
+import { Draggable } from "../models/drag-drop.interface";
+import { Project } from "../models/project.model";
+import Component from "./base-component";
 
 /** Project Item Class */
 export class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> implements Draggable

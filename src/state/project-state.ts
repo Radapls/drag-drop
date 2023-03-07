@@ -11,7 +11,7 @@
  * @date Monday, 6th March 2023
  */
 
-import { Project, ProjectStatus } from "../models/project.model.js";
+import { Project, ProjectStatus } from "../models/project.model";
 
 /** Project state management */
 

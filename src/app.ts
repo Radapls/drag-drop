@@ -11,8 +11,8 @@
  * @date Friday, 15th November 2019
  */
 
-import { ProjectInput } from "./components/project-input.js";
-import { ProjectList } from "./components/project-list.js";
+import { ProjectInput } from "./components/project-input";
+import { ProjectList } from "./components/project-list";
 
 
 new ProjectInput();
